@@ -101,8 +101,8 @@ def ppv_regress(filename, nc=0.9):
     plt.plot(x_grid, y_pred_x_grid_nc, linestyle='solid', label='nc')
     plt.legend()
     # Label axes
-    _ = plt.xlabel('sd')
-    _ = plt.ylabel('v')
+    _ = plt.xlabel('log(sd)')
+    _ = plt.ylabel('log(ppv)')
     plt.margins(0.05)
     
     # guardado de resultados en los puntos x
@@ -128,7 +128,7 @@ def cargas_sd(nc_equation, nc_equation_aprox):
     el valor de beta de la ley de escala empleda: s_d: Distancia/Carga^beta.
     Se emplean el modelo riguroso y el aproximado'''
     
-    # valores definidos por el usuario
+    # valores definidos por el usuario (unidades en ejemplo: mm/s, m y kg)
     ppvumbral=40 # mm/s
     beta=0.5
     d_grid = np.linspace(50, 250, 20)  # m
@@ -155,6 +155,8 @@ def cargas_sd(nc_equation, nc_equation_aprox):
     plt.figure(1)
     _ = plt.plot(d_grid, cargas, linestyle='solid', label='Q vs D')
     plt.plot(d_grid, carga_aprox, linestyle='dashed', label='Qaprox vs D')
+    plt.legend()
+    # Label axes
     _ = plt.xlabel('Distancia')
     _ = plt.ylabel('Carga')
     plt.margins(0.05)
