@@ -30,3 +30,5 @@ En este caso el resultado se aproxima con una ecuación cuadrática.
 
 También determina la carga máxima operante en función de la distancia definido 
 un umbral de la vpp, el modelo de la ley de ecala y un nivel de confianza.
+
+![Q vs D](https://github.com/FGBASTANTE/PPV-LAW/assets/52360383/8481d803-7dda-4c76-bb30-a44e79180f27)
