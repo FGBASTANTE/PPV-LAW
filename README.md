@@ -10,7 +10,7 @@ beta = 1/2, y para cargas esféricas: beta = 1/3.
 
 En el fichero de entrada los valores x son los logaritmos decimales de
 las distancias escaladas (log10(s_d)); los valores y son, consecuentemente,
-los log10(ppv):
+los log10(ppv):\
 x	y\
 1.76779	0.2001\
 0.69139	1.96096\
