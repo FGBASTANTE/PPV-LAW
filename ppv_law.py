@@ -20,7 +20,7 @@ x	y
 Se supone modelo de ruido lognormal y ofrece, entre otros resultados, la recta
 (curva) de seguridad definido un nivel de confianza nc (nc>0.5 ->50%).
 
-Aquella se calcula tanto de de forma aproximada (recta de seguridad) como de
+Aquella se calcula tanto de forma aproximada (recta de seguridad) como de
 forma rigurosa -teniendo en cuenta que los parámetros del modelo son estimados.
 En este caso el resultado se aproxima con una ecuación cuadrática.
 
