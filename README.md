@@ -26,5 +26,7 @@ Aquella se calcula tanto de de forma aproximada (recta de seguridad) como de
 forma rigurosa -teniendo en cuenta que los parámetros de l regresión son estimados.
 En este caso el resultado se aproxima con una ecuación cuadrática.
 
+![logppv vs logsd ](https://github.com/FGBASTANTE/PPV-LAW/assets/52360383/ac34fb9e-63cf-4bb5-9b8d-3567068805a4)
+
 También determina la carga máxima operante en función de la distancia definido 
 un umbral de la vpp, el modelo de la ley de ecala y un nivel de confianza.
