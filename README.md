@@ -1,4 +1,4 @@
-# PPV-LAW
+# PPV-Attenuation_Law
 
 Código para determinar la ley de propagación de vibraciones en el terreno a
 partir del registro en voladuras de las velocidades pico de partícula (ppv)
