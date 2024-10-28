@@ -26,9 +26,12 @@ Aquella se calcula tanto de forma aproximada (recta de seguridad) como de
 forma rigurosa -teniendo en cuenta que los parámetros de la regresión son estimados.
 En este caso el resultado se aproxima con una ecuación cuadrática.
 
-![logppv vs logsd ](https://github.com/FGBASTANTE/PPV-LAW/assets/52360383/ac34fb9e-63cf-4bb5-9b8d-3567068805a4)
+También calcula el intervalo de tolerancia definida una cobertura de la población y el nc.
 
-También determina la carga máxima operante en función de la distancia definido 
+![image](https://github.com/user-attachments/assets/eb9c209d-0cb2-4b3c-91e1-7069c3620828)
+
+Finalmente, determina la carga máxima operante en función de la distancia definido 
 un umbral de la ppv, el modelo de la ley de escala y un nivel de confianza.
 
-![Q vs D](https://github.com/FGBASTANTE/PPV-LAW/assets/52360383/8481d803-7dda-4c76-bb30-a44e79180f27)
+![image](https://github.com/user-attachments/assets/eaf67905-88ec-49fc-a29a-175a3419d0ed)
+
