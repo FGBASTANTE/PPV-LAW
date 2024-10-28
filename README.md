@@ -28,10 +28,5 @@ En este caso el resultado se aproxima con una ecuación cuadrática.
 
 También calcula el intervalo de tolerancia definida una cobertura de la población y el nc.
 
-![image](https://github.com/user-attachments/assets/b289a317-77f6-4e94-9985-b701ee866a89)
-
 Finalmente, determina la carga máxima operante en función de la distancia definido 
 un umbral de la ppv, el modelo de la ley de escala y un nivel de confianza, y la cobertura.
-
-![image](https://github.com/user-attachments/assets/422b5540-507a-4b29-bc46-42dc51299e8d)
-
