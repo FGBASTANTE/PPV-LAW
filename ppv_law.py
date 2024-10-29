@@ -40,6 +40,7 @@ import scipy.special as sp
 
 ''''""""""""""""""""""""""""""""""""""""'''
 
+
 def ppv_regress(filename, nc=0.9, cobertura=0.95, ngrid=20):
     """
     Calculates the linear regression of the sample (x, y) --> (log_s_d, log_v_e),
@@ -72,7 +73,7 @@ def ppv_regress(filename, nc=0.9, cobertura=0.95, ngrid=20):
 
     # lectura de los datos en fichero de texto con valores (x, y)
     try:
-        df_x = pd.read_csv(filename, sep=r'\s+')
+        df_x = pd.read_csv(filename, sep=r"\s+")
         if "x" not in df_x.columns or "y" not in df_x.columns:
             raise ValueError("Input file must contain 'x' and 'y' columns.")
     except FileNotFoundError:
@@ -104,8 +105,7 @@ def ppv_regress(filename, nc=0.9, cobertura=0.95, ngrid=20):
     # (teniendo en cuenta el error del modelo) e intervalo de tolerancia
     se_x_aprox = st.norm.ppf(nc, loc=0, scale=mse)
     se_x = (
-        np.sqrt(1 + 1 / n + np.square((x - x_mean)) / ss) *
-        mse * st.t.ppf(nc, df=n - 2)
+        np.sqrt(1 + 1 / n + np.square((x - x_mean)) / ss) * mse * st.t.ppf(nc, df=n - 2)
     )
     se_x_grid = (
         np.sqrt(1 + 1 / n + np.square((x_grid - x_mean)) / ss)
@@ -119,8 +119,7 @@ def ppv_regress(filename, nc=0.9, cobertura=0.95, ngrid=20):
     zp_d = st.norm.ppf(cobertura) / _x_tol
     zp_d_grid = st.norm.ppf(cobertura) / _x_tol_grid
     se_x_tol = sp.nctdtrit(n - 2, zp_d, nc, out=None) * mse * _x_tol
-    se_x_tol_grid = sp.nctdtrit(
-        n - 2, zp_d_grid, nc, out=None) * mse * _x_tol_grid
+    se_x_tol_grid = sp.nctdtrit(n - 2, zp_d_grid, nc, out=None) * mse * _x_tol_grid
 
     # cálculo de predicción en x con nivel de confianza nc (ambos métodos e intervalo de tolerancia)
     y_pred_nc_aprox = y_predict + se_x_aprox
@@ -151,8 +150,7 @@ def ppv_regress(filename, nc=0.9, cobertura=0.95, ngrid=20):
     plt.figure(0)
     _ = plt.plot(x, y, marker=".", linestyle="none", label="data")
     plt.plot(x_grid, y_predict_x_grid, linestyle="solid", label="regression")
-    plt.plot(x_grid, y_pred_x_grid_nc_aprox,
-             linestyle="dashed", label="nc_aprox")
+    plt.plot(x_grid, y_pred_x_grid_nc_aprox, linestyle="dashed", label="nc_aprox")
     plt.plot(x_grid, y_pred_x_grid_nc, linestyle="solid", label="prediction")
     plt.plot(x_grid, y_tol_x_grid_nc, linestyle="solid", label="tolerance")
     plt.legend()
@@ -173,7 +171,7 @@ def ppv_regress(filename, nc=0.9, cobertura=0.95, ngrid=20):
     df_x_grid["y_pred_nc_aprox"] = y_pred_x_grid_nc_aprox
     df_x_grid["y_pred_nc"] = y_pred_x_grid_nc
     df_x_grid["y_tol_nc"] = y_tol_x_grid_nc
-    print (df_x_grid)
+    print(df_x_grid)
     return nc_equation_pred[0], nc_equation_aprox, nc_equation_tol[0]
 
 
@@ -200,7 +198,6 @@ def cargas_sd(
     pd.DataFrame: DataFrame containing distances (D) and calculated loads (Q).
     """
 
-
     # resolución de la ecuación de segundo grado para resolución con intervalo de predicción
     logppv = np.log10(ppvumbral)
     a = nc_equation_pred[0]
@@ -217,7 +214,7 @@ def cargas_sd(
     sd_aprox = 10**logsd_aprox
     carga_aprox = np.power(d_grid / sd_aprox, 1 / beta)
 
-    # resolución de la ecuación de segundo grado para resolución con intervalo de tolerancia
+    # resolución de la ecuación de segundo grado para solución con intervalo de tolerancia
     a = nc_equation_tol[0]
     b = nc_equation_tol[1]
     c = nc_equation_tol[2] - logppv
@@ -229,8 +226,7 @@ def cargas_sd(
 
     # gráfico de resultados
     plt.figure(1)
-    _ = plt.plot(d_grid, cargas_prediccion,
-                 linestyle="solid", label="Qpred vs D")
+    _ = plt.plot(d_grid, cargas_prediccion, linestyle="solid", label="Qpred vs D")
     plt.plot(d_grid, carga_aprox, linestyle="dashed", label="Qaprox vs D")
     plt.plot(d_grid, cargas_tolerancia, linestyle="solid", label="Qtol vs D")
     plt.legend()
@@ -254,6 +250,7 @@ if __name__ == "__main__":
     nc_equation_pred, nc_equation_aprox, nc_equation_tol = ppv_regress(
         "data_ppv_vertical.txt", nc=0.90, cobertura=0.95
     )
-    
-    tabla_Q_D = cargas_sd(nc_equation_pred, nc_equation_aprox,
-                          nc_equation_tol, ppvumbral=50, beta=0.5)
+
+    tabla_Q_D = cargas_sd(
+        nc_equation_pred, nc_equation_aprox, nc_equation_tol, ppvumbral=50, beta=0.5
+    )
