@@ -188,7 +188,7 @@ def cargas_sd(
     d_grid=np.linspace(50, 250, 20),
 ):
     """
-    Calculate the maximum operating loads (e.g., kg) as a function of distances
+    Calculate the maximum cooperating charges (e.g., kg) as a function of distances
     (d_grid, e.g., m) given a threshold value of the PPV (ppvumbral, e.g., mm/s) and the
     beta value of the scaling law used: s_d: Distance/Load^beta.
     Both the rigorous model and the approximate model are used.
