@@ -200,10 +200,6 @@ def cargas_sd(
     pd.DataFrame: DataFrame containing distances (D) and calculated loads (Q).
     """
 
-    # valores definidos por el usuario (unidades en ejemplo: mm/s, m y kg)
-    ppvumbral = 40  # mm/s
-    beta = 0.5
-    d_grid = np.linspace(50, 250, 20)  # m
 
     # resolución de la ecuación de segundo grado para resolución con intervalo de predicción
     logppv = np.log10(ppvumbral)
